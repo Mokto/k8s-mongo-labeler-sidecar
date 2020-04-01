@@ -104,11 +104,11 @@ func getConfigFromEnvironment() (*Config, error) {
 	}
 
 	config := &Config{
-		LabelSelector:	l,
-		Namespace:	"default",
-		Address:	"localhost:27017",
-		LabelAll:	false,
-		LogLevel:	logrus.InfoLevel,
+		LabelSelector: l,
+		Namespace:     "default",
+		Address:       "localhost:27017",
+		LabelAll:      false,
+		LogLevel:      logrus.InfoLevel,
 	}
 
 	if l, ok = os.LookupEnv("NAMESPACE"); ok {
@@ -204,7 +204,7 @@ func main() {
 	logrus.SetLevel(labeler.Config.LogLevel)
 	logrus.Infof("Setting logging level to %s", labeler.Config.LogLevel.String())
 
-	ticker := time.NewTicker(5 * time.Second).C
+	ticker := time.NewTicker(3 * time.Second).C
 	done := make(chan bool)
 	for {
 		select {
